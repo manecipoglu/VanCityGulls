@@ -1,22 +1,18 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import "./App.css";
 import Footer from "./Footer";
 import Header from "./Header";
-import { getProducts } from "./services/productService";
 import Spinner from "./Spinner";
+import useFetch from "./services/useFetch";
 
 export default function App() {
   const [size, setSize] = useState("");
-  const [products, setProducts] = useState([]);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    getProducts("bikes")
-      .then(res => setProducts(res))
-      .catch(err => setError(err))
-      .finally(() => setLoading(false));
-  }, []);
+  const {
+    data: products,
+    loading,
+    error,
+  } = useFetch("products?category=bikes");
 
   function renderProduct(p) {
     return (
