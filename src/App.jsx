@@ -8,9 +8,12 @@ import { getProducts } from "./services/productService";
 export default function App() {
   const [size, setSize] = useState("");
   const [products, setProducts] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    getProducts("bikes").then(res => setProducts(res));
+    getProducts("bikes")
+      .then(res => setProducts(res))
+      .catch(err => setError(err));
   }, []);
 
   function renderProduct(p) {
@@ -28,6 +31,8 @@ export default function App() {
   const filteredProducts = size
     ? products.filter(p => p.skus.find(s => s.size === size))
     : products;
+
+  if (error) throw error;
 
   return (
     <>
