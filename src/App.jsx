@@ -13,7 +13,11 @@ export default function App() {
         <Header />
         <main>
           <Routes>
-            <Route path="/" element={<Products />} />
+            <Route
+              path="/"
+              element={<h1>Welcome to VanCity Gulls Bicycle Shop</h1>}
+            />
+            <Route path="/:category" element={<Products />} />
             <Route path="/detail" element={<ProductDetail />} />
             <Route path="/cart" element={<Cart />} />
           </Routes>
