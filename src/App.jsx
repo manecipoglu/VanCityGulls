@@ -15,10 +15,10 @@ export default function App() {
           <Routes>
             <Route
               path="/"
-              element={<h1>Welcome to VanCity Gulls Bicycle Shop</h1>}
+              element={<h1>Welcome to VanCity Gulls Bicycle</h1>}
             />
             <Route path="/:category" element={<Products />} />
-            <Route path="/detail" element={<ProductDetail />} />
+            <Route path="/:category/:id" element={<ProductDetail />} />
             <Route path="/cart" element={<Cart />} />
           </Routes>
         </main>

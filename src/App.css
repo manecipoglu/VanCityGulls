@@ -35,6 +35,7 @@ header img {
 nav {
   display: flex;
   align-items: center;
+  margin-left: 40px;
 }
 
 footer {
@@ -47,11 +48,12 @@ footer {
 
 header ul {
   padding-inline-start: 20px;
+  margin-top: 26px;
 }
 
 header li {
   display: inline;
-  margin-right: 20px;
+  margin: 0 20px;
 }
 
 #detail img {
@@ -106,8 +108,14 @@ main {
 }
 
 a {
-  color: #faa541;
+  color: rgb(236, 236, 53);
   text-decoration: none;
+  font-size: 1.5rem;
+  font-family: "Love Ya Like A Sister", cursive;
+}
+
+.product-link {
+  color: #ff9205;
 }
 
 h1 {

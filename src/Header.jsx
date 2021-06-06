@@ -1,12 +1,26 @@
-import React from "react";
+import { Link, NavLink } from "react-router-dom";
+
+const activeStyle = {
+  color: "#faa541",
+};
 
 export default function Header() {
   return (
     <header>
       <nav>
+        <Link to="/">
+          <img alt="VancIty Gull Bicycle Shop" src="/images/logo.png" />
+        </Link>
         <ul>
           <li>
-            <img alt="VancIty Gull Bicycle Shop" src="/images/logo.png" />
+            <NavLink activeStyle={activeStyle} to="/bikes">
+              Bikes
+            </NavLink>
+          </li>
+          <li>
+            <NavLink activeStyle={activeStyle} to="/cart">
+              Cart
+            </NavLink>
           </li>
         </ul>
       </nav>
