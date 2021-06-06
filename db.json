@@ -3,14 +3,14 @@
     {
       "id": 1,
       "category": "bikes",
-      "image": "Mountain_Bike.jpg",
-      "name": "Mountaineer",
+      "image": "Road_Bike.jpg",
+      "name": "Road Runner",
       "price": 865.95,
       "skus": [
         { "sku": "1M", "size": "M" },
         { "sku": "1L", "size": "L" }
       ],
-      "description": "This classy looking mile earner is a cross country mountain bike built to give you an efficient off-road ride."
+      "description": "This classy looking mile earner is a cross country road bike built to give you an efficient ride."
     },
     {
       "id": 2,

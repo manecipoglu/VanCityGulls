@@ -18,7 +18,7 @@ export default function Products() {
   function renderProduct(p) {
     return (
       <div key={p.id} className="product">
-        <Link class="product-link" to={`/${category}/${p.id}`}>
+        <Link className="product-link" to={`/${category}/${p.id}`}>
           <img src={`/images/${p.image}`} alt={p.name} />
           <h3>{p.name}</h3>
           <p>${p.price}</p>
