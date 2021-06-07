@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { saveShippingAddress } from "./services/shippingService";
+import { useCart } from "./cartContext";
 
 const emptyAddress = {
   city: "",
@@ -13,7 +14,8 @@ const STATUS = {
   COMPLETED: "COMPLETED",
 };
 
-export default function Checkout({ cart, dispatch }) {
+export default function Checkout() {
+  const { dispatch } = useCart();
   const [address, setAddress] = useState(emptyAddress);
   const [status, setStatus] = useState(STATUS.IDLE);
   const [error, setError] = useState(null);
@@ -30,11 +32,13 @@ export default function Checkout({ cart, dispatch }) {
       };
     });
   }
+
   function handleBlur(e) {
     setTouched(prevTouched => {
       return { ...prevTouched, [e.target.id]: true };
     });
   }
+
   async function handleSubmit(e) {
     e.preventDefault();
     setStatus(STATUS.SUBMITTING);
@@ -50,6 +54,7 @@ export default function Checkout({ cart, dispatch }) {
       setStatus(STATUS.SUBMITTED);
     }
   }
+
   function getErrors(address) {
     const result = {};
     if (!address.city) result.city = "City is required";

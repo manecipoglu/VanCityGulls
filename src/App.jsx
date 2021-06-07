@@ -19,18 +19,9 @@ export default function App() {
               element={<h1>Welcome to VanCity Gulls Bicycle</h1>}
             />
             <Route path="/:category" element={<Products />} />
-            <Route
-              path="/:category/:id"
-              element={<ProductDetail dispatch={dispatch} />}
-            />
-            <Route
-              path="/cart"
-              element={<Cart cart={cart} dispatch={dispatch} />}
-            />
-            <Route
-              path="/checkout"
-              element={<Checkout cart={cart} dispatch={dispatch} />}
-            />
+            <Route path="/:category/:id" element={<ProductDetail />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
           </Routes>
         </main>
       </div>
