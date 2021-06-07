@@ -17,6 +17,7 @@ export default function Checkout({ cart, emptyCart }) {
   const [address, setAddress] = useState(emptyAddress);
   const [status, setStatus] = useState(STATUS.IDLE);
   const [error, setError] = useState(null);
+  const [touched, setTouched] = useState({});
 
   const errors = getErrors(address);
   const isValid = Object.keys(errors).length === 0;
@@ -29,7 +30,11 @@ export default function Checkout({ cart, emptyCart }) {
       };
     });
   }
-  function handleBlur(e) {}
+  function handleBlur(e) {
+    setTouched(prevTouched => {
+      return { ...prevTouched, [e.target.id]: true };
+    });
+  }
   async function handleSubmit(e) {
     e.preventDefault();
     setStatus(STATUS.SUBMITTING);
@@ -79,6 +84,9 @@ export default function Checkout({ cart, emptyCart }) {
             onBlur={handleBlur}
             onChange={handleChange}
           />
+          <p role="alert">
+            {(touched.city || status === STATUS.SUBMITTED) && errors.city}
+          </p>
         </div>
         <div>
           <label htmlFor="country">Country</label>
@@ -95,6 +103,9 @@ export default function Checkout({ cart, emptyCart }) {
             <option value="Turkey">Turkey</option>
             <option value="USA">USA</option>
           </select>
+          <p role="alert">
+            {(touched.country || status === STATUS.SUBMITTED) && errors.country}
+          </p>
         </div>
         <div>
           <input
