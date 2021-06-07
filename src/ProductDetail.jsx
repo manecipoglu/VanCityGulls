@@ -1,13 +1,19 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import useFetch from "./services/useFetch";
 import Spinner from "./Spinner";
 import PageNotFound from "./PageNotFound";
 
 export default function ProductDetail({ addToCart }) {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [sku, setSku] = useState("");
   const { data: product, error, loading } = useFetch(`products/${id}`);
+
+  function handleClick() {
+    addToCart(id, sku);
+    navigate("/cart");
+  }
 
   if (loading) return <Spinner />;
   if (!product) return <PageNotFound />;
@@ -30,7 +36,7 @@ export default function ProductDetail({ addToCart }) {
         <button
           disabled={!sku}
           className="btn btn-primary"
-          onClick={() => addToCart(id, sku)}
+          onClick={handleClick}
         >
           Add to Cart
         </button>

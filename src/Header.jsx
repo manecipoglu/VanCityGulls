@@ -9,7 +9,7 @@ export default function Header() {
     <header>
       <nav>
         <Link to="/">
-          <img alt="VancIty Gull Bicycle Shop" src="/images/logo.png" />
+          <img alt="VanCity Gull Bicycle Shop" src="/images/logo.png" />
         </Link>
         <ul>
           <li>
