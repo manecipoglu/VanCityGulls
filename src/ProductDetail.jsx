@@ -4,14 +4,14 @@ import useFetch from "./services/useFetch";
 import Spinner from "./Spinner";
 import PageNotFound from "./PageNotFound";
 
-export default function ProductDetail({ addToCart }) {
+export default function ProductDetail({ dispatch }) {
   const { id } = useParams();
   const navigate = useNavigate();
   const [sku, setSku] = useState("");
   const { data: product, error, loading } = useFetch(`products/${id}`);
 
   function handleClick() {
-    addToCart(id, sku);
+    dispatch({ type: "add", id, sku });
     navigate("/cart");
   }
 
