@@ -7,8 +7,14 @@
       "name": "Road Runner",
       "price": 865.95,
       "skus": [
-        { "sku": "1M", "size": "M" },
-        { "sku": "1L", "size": "L" }
+        {
+          "sku": "1M",
+          "size": "M"
+        },
+        {
+          "sku": "1L",
+          "size": "L"
+        }
       ],
       "description": "This classy looking mile earner is a cross country road bike built to give you an efficient ride."
     },
@@ -17,10 +23,16 @@
       "category": "bikes",
       "image": "Cargo_Bike.jpg",
       "name": "Courier",
-      "price": 1299.90,
+      "price": 1299.9,
       "skus": [
-        { "sku": "2S", "size": "S" },
-        { "sku": "2M", "size": "M" }
+        {
+          "sku": "2S",
+          "size": "S"
+        },
+        {
+          "sku": "2M",
+          "size": "M"
+        }
       ],
       "description": "This long-tail hauler is great at making you sweat while also making it worthwhile."
     },
@@ -31,8 +43,14 @@
       "name": "Stepper",
       "price": 689.95,
       "skus": [
-        { "sku": "3S", "size": "S" },
-        { "sku": "3M", "size": "M" }
+        {
+          "sku": "3S",
+          "size": "S"
+        },
+        {
+          "sku": "3M",
+          "size": "M"
+        }
       ],
       "description": "Ideal for anyone who’s ever been apprehensive about swinging a leg over a top tube or being able to touch their feet to the ground at the last second."
     },
@@ -43,9 +61,18 @@
       "name": "Explorer",
       "price": 749.95,
       "skus": [
-        { "sku": "4S", "size": "S" },
-        { "sku": "4M", "size": "M" },
-        { "sku": "4L", "size": "L" }
+        {
+          "sku": "4S",
+          "size": "S"
+        },
+        {
+          "sku": "4M",
+          "size": "M"
+        },
+        {
+          "sku": "4L",
+          "size": "L"
+        }
       ],
       "description": "The Explorer is fast like a road bike, sturdy like a mountain bike, and smooth like a Cadillac."
     },
@@ -56,8 +83,14 @@
       "name": "Electricity",
       "price": 2599.95,
       "skus": [
-        { "sku": "5M", "size": "M" },
-        { "sku": "5L", "size": "L" }
+        {
+          "sku": "5M",
+          "size": "M"
+        },
+        {
+          "sku": "5L",
+          "size": "L"
+        }
       ],
       "description": "This shiny-red, confident-looking commuter is as fast as it looks."
     }
@@ -67,6 +100,11 @@
       "id": 1,
       "city": "",
       "country": ""
+    },
+    {
+      "city": "Vancouver",
+      "country": "Canada",
+      "id": 2
     }
   ]
 }
