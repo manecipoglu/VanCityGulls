@@ -13,7 +13,7 @@ const STATUS = {
   COMPLETED: "COMPLETED",
 };
 
-export default function Checkout({ cart }) {
+export default function Checkout({ cart, emptyCart }) {
   const [address, setAddress] = useState(emptyAddress);
   const [status, setStatus] = useState(STATUS.IDLE);
   const [error, setError] = useState(null);
@@ -32,12 +32,15 @@ export default function Checkout({ cart }) {
     setStatus(STATUS.SUBMITTING);
     try {
       await saveShippingAddress(address);
+      emptyCart();
+      setStatus(STATUS.COMPLETED);
     } catch (err) {
       setError(err);
     }
   }
 
   if (error) throw error;
+  if (status === STATUS.COMPLETED) return <h1>Thanks for shopping!</h1>;
 
   return (
     <>
