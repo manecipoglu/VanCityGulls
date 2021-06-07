@@ -5,12 +5,30 @@ const emptyAddress = {
   country: "",
 };
 
+const STATUS = {
+  IDLE: "IDLE",
+  SUBMITTING: "SUBMITTING",
+  SUBMITTED: "SUBMITTED",
+  COMPLETED: "COMPLETED",
+};
+
 export default function Checkout({ cart }) {
   const [address, setAddress] = useState(emptyAddress);
+  const [status, setStatus] = useState(STATUS.IDLE);
 
-  function handleChange(e) {}
+  function handleChange(e) {
+    setAddress(prevAddress => {
+      return {
+        ...prevAddress,
+        [e.target.id]: e.target.value,
+      };
+    });
+  }
   function handleBlur(e) {}
-  function handleSubmit(e) {}
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setStatus(STATUS.SUBMITTING);
+  }
 
   return (
     <>
@@ -48,6 +66,7 @@ export default function Checkout({ cart }) {
             type="submit"
             className="btn btn-primary"
             value="Save Shipping Info"
+            disabled={status === STATUS.SUBMITTING}
           />
         </div>
       </form>
