@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { saveShippingAddress } from "./services/shippingService";
 
 const emptyAddress = {
   city: "",
@@ -15,6 +16,7 @@ const STATUS = {
 export default function Checkout({ cart }) {
   const [address, setAddress] = useState(emptyAddress);
   const [status, setStatus] = useState(STATUS.IDLE);
+  const [error, setError] = useState(null);
 
   function handleChange(e) {
     setAddress(prevAddress => {
@@ -28,6 +30,11 @@ export default function Checkout({ cart }) {
   async function handleSubmit(e) {
     e.preventDefault();
     setStatus(STATUS.SUBMITTING);
+    try {
+      await saveShippingAddress(address);
+    } catch (err) {
+      setError(err);
+    }
   }
 
   return (
