@@ -37,6 +37,8 @@ export default function Checkout({ cart }) {
     }
   }
 
+  if (error) throw error;
+
   return (
     <>
       <h1>Shipping Info</h1>
