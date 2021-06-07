@@ -1,10 +1,12 @@
 import { useMemo } from "react";
 import Spinner from "./Spinner";
 import useFetchAll from "./services/useFetchAll";
+import { useNavigate } from "react-router-dom";
 
 export default function Cart({ cart, updateQuantity }) {
   const urls = cart.map(item => `products/${item.id}`);
   const { data: products, loading, error } = useFetchAll(urls);
+  const navigate = useNavigate();
 
   function renderItem(itemInCart) {
     const { id, sku, quantity } = itemInCart;
@@ -55,6 +57,14 @@ export default function Cart({ cart, updateQuantity }) {
           : `${numItemsInCart} item${numItemsInCart > 1 ? "s" : ""} in cart`}
       </h1>
       <ul>{cart.map(renderItem)}</ul>
+      {cart.length > 0 && (
+        <button
+          className="btn btn-primary"
+          onClick={() => navigate("/checkout")}
+        >
+          Checkout
+        </button>
+      )}
     </section>
   );
 }
