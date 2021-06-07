@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -8,7 +8,19 @@ import ProductDetail from "./ProductDetail";
 import Cart from "./Cart";
 
 export default function App() {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem("gullsCart")) ?? [];
+    } catch {
+      console.error("The cart could not ve parsed into JSON.");
+      return [];
+    }
+  });
+
+  useEffect(
+    () => localStorage.setItem("gullsCart", JSON.stringify(cart)),
+    [cart]
+  );
 
   function addToCart(id, sku) {
     setCart(items => {
