@@ -1,4 +1,3 @@
-import { useReducer, useEffect } from "react";
 import "./App.css";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -7,24 +6,8 @@ import { Routes, Route } from "react-router-dom";
 import ProductDetail from "./ProductDetail";
 import Cart from "./Cart";
 import Checkout from "./Checkout";
-import cartReducer from "./cartReducer";
-
-let initialCart;
-try {
-  initialCart = JSON.parse(localStorage.getItem("gullsCart")) ?? [];
-} catch {
-  console.error("The cart could not ve parsed into JSON.");
-  initialCart = [];
-}
 
 export default function App() {
-  const [cart, dispatch] = useReducer(cartReducer, initialCart);
-
-  useEffect(
-    () => localStorage.setItem("gullsCart", JSON.stringify(cart)),
-    [cart]
-  );
-
   return (
     <>
       <div className="content">
